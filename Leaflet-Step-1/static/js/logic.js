@@ -77,12 +77,13 @@ d3.json(geoData, function(data) {
 
       var div = L.DomUtil.create('div', 'info legend');
           var grades = [0, 1, 2, 3, 4, 5];
+          var colors = ["#FFEDA0", "#FEB24C", "#FD8D3C", "#FC4E2A", "#E31A1C", "#BD0026", "#800026"];
           labels = [];
 
       // loop through our density intervals and generate a label with a colored square for each interval
       for (var i = 0; i < grades.length; i++) {
           div.innerHTML +=
-              '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+              '<li style="background:' + colors[(grades[i] + 1)] + '"></li>' + 
               grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
       }
 
